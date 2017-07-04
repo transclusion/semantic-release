@@ -15,7 +15,7 @@ test('should release', () => {
   })
 
   const mockCLI = createMockCLI({
-    'git rev-list -n 1 0.1.0': '12345',
+    'git rev-list -n 1 v0.1.0': '12345',
     'git log -E --format=%H==SPLIT==%B==END== 12345..HEAD': `56780==SPLIT==feat(scope): short 1
 
 long 1
@@ -30,7 +30,7 @@ Closes #1.
     'npm --no-git-tag-version version minor': 'v0.2.0',
     'echo 0.2.0': '0.2.0',
     'git add .': '',
-    'git commit -m "v0.2.0"': `[master 12345] v0.2.0
+    'git commit -m "0.2.0"': `[master 12345] v0.2.0
 1 file changed, 1 insertion(+), 1 deletion(-)`,
     'git tag v0.2.0': '',
     'npm publish --registry "https://npmjs.mock"':
