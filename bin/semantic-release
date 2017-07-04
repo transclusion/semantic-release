@@ -34,12 +34,11 @@ switch (command) {
     break
 
   default:
-    semanticRelease
-      .pre({
-        access: flags['access'],
-        versionHook: flags['version-hook'],
-        registry: flags['registry']
-      })
+    semanticRelease({
+      access: flags['access'],
+      versionHook: flags['version-hook'],
+      registry: flags['registry']
+    })
       .then(version => {
         console.log(`Released version ${version}`)
       })
