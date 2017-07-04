@@ -28,7 +28,7 @@ const getLastRelease = (ctx: Context, {pkg, registry}) => {
 const getReleaseType = (ctx: Context, {pkg, registry}) =>
   getLastRelease(ctx, {pkg, registry: registry}).then(lastRelease => {
     if (lastRelease) {
-      return getGitCommitsSinceTag(ctx, pkg.version).then(getSemverChange)
+      return getGitCommitsSinceTag(ctx, lastRelease).then(getSemverChange)
     }
 
     return null
