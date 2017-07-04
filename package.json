@@ -1,6 +1,6 @@
 {
   "name": "@transclusion/semantic-release",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "lib/main.js",
   "repository": "git@github.com:transclusion/semantic-release.git",
   "author": "Marius Lundgård <studio@mariuslundgard.com>",
