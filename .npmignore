@@ -1,0 +1,12 @@
+.DS_Store
+*.log
+npm-debug*
+/.babelrc
+/.editorconfig
+/.eslintrc
+/.flowconfig
+/.travis.yml
+/flow-typed
+/node_modules
+/src
+/test

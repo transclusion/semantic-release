@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+const {argv} = require('yargs')
+const chalk = require('chalk')
+const semanticRelease = require('../').default
+
+const args = argv._
+
+const flags = Object.keys(argv)
+  .filter(key => key !== '_' && key.substr(0, 1) !== '$')
+  .reduce((f, key) => {
+    f[key] = argv[key]
+    return f
+  }, {})
+
+const command = args.shift()
+
+const printUsage = () =>
+  console.log(`
+usage: semantic-release <options>
+
+  Options:
+  --access <public|restricted>
+  --registry <npm-registry-url>
+  --version-hook <command>
+
+  Commands:
+  - help
+`)
+
+switch (command) {
+  case 'help':
+    printUsage()
+    break
+
+  default:
+    semanticRelease
+      .pre({
+        access: flags['access'],
+        versionHook: flags['version-hook'],
+        registry: flags['registry']
+      })
+      .then(version => {
+        console.log(`Released version ${version}`)
+      })
+      .catch(err => {
+        console.error(`${chalk.red('error')} ${err.message}`)
+        process.exit(1)
+      })
+    break
+}
