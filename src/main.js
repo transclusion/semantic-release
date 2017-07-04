@@ -70,7 +70,7 @@ const semanticRelease = (opts: PreOpts = {}) => {
       if (currentRelease && currentRelease !== pkg.version) {
         return ctx.cli
           .exec(`git add .`)
-          .then(() => ctx.cli.exec(`git commit -m "v${currentRelease}"`))
+          .then(() => ctx.cli.exec(`git commit -m "${currentRelease}"`))
           .then(() => ctx.cli.exec(`git tag v${currentRelease}`))
           .then(() => currentRelease)
       }
