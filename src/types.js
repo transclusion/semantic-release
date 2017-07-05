@@ -44,6 +44,7 @@ export type CLI = {
 }
 
 export type PreOpts = {
+  access?: 'restricted' | 'public',
   registry?: string,
   versionHook?: string,
   cli?: CLI

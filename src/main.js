@@ -79,7 +79,10 @@ const semanticRelease = (opts: PreOpts = {}) => {
     })
     .then(currentRelease => {
       return ctx.cli
-        .exec(`npm publish --registry "${registry}"`)
+        .exec(
+          `npm publish --registry "${registry}" --access ${opts.access ||
+            'restricted'}`
+        )
         .then(() => currentRelease)
     })
 }
