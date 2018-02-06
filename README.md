@@ -1,5 +1,7 @@
 # @transclusion/semantic-release
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/transclusion/semantic-release.svg)](https://greenkeeper.io/)
+
 A Node.js/CLI utility for semantic releases to the GitHub and the NPM registry.
 
 ```sh
